@@ -21,7 +21,7 @@ while($row=mysqli_fetch_assoc($resultat)){
         <label for="nom">Nom :</label>
         <input name="nom" id="nom" value="<?php echo $row["nom"]?>" />
         <br>
-        <label for="prenom">Prénom :</label>
+        <label for="prenom">PrÃ©nom :</label>
         <input name="prenom" id="prenom" value="<?php echo $row["prenom"]?>" />
         <br>
         <label for="age">Age :</label>
@@ -29,9 +29,10 @@ while($row=mysqli_fetch_assoc($resultat)){
           <?php
             $selected = "selected=selected";
             
-           for($i=0; $i<=70; $i++)
-            
-              echo '<option value="'.$i.'" '.if($row["age"] == $i)$selected.'>'.$i.'</option>';
+           for($i=0; $i<=70; $i++){
+              if ($row["age"] == $i){$selected = "selected";}
+              echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+           }
           ?>
         </select>
         <br>
